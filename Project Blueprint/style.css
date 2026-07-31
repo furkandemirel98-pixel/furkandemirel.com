@@ -1,0 +1,47 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0b0b0b;
+    color:#ffffff;
+    font-family:"Inter",sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+main{
+    text-align:center;
+}
+
+h1{
+    font-size:64px;
+    font-weight:600;
+    letter-spacing:12px;
+    margin-bottom:18px;
+}
+
+p{
+    color:#8b8b8b;
+    font-size:18px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+@media (max-width:768px){
+
+h1{
+    font-size:34px;
+    letter-spacing:6px;
+}
+
+p{
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+}
