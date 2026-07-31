@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#0d0d0d"/>
+  <rect x="220" y="120" width="360" height="220" rx="16" fill="#1a1a1a" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+  <circle cx="300" cy="230" r="36" fill="#222222"/>
+  <circle cx="500" cy="230" r="36" fill="#222222"/>
+  <rect x="280" y="300" width="240" height="20" rx="4" fill="#222222"/>
+  <text x="400" y="430" text-anchor="middle" fill="#777777" font-family="Arial, sans-serif" font-size="18">Özel Makine</text>
+</svg>
