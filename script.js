@@ -2,6 +2,71 @@ const CV_PATH = "cv/Furkan_Demirel_CV.pdf";
 const CV_FILENAME = "Furkan_Demirel_CV.pdf";
 
 /* ===============================
+   THEME TOGGLE
+================================== */
+
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+const THEMES = {
+    DARK: 'dark',
+    LIGHT: 'light',
+    SYSTEM: 'system'
+};
+
+const STORAGE_KEY = 'portfolio-theme';
+
+function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEMES.DARK : THEMES.LIGHT;
+}
+
+function getStoredTheme() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && Object.values(THEMES).includes(stored)) {
+        return stored;
+    }
+    return THEMES.SYSTEM;
+}
+
+function applyTheme(theme) {
+    const effectiveTheme = theme === THEMES.SYSTEM ? getSystemTheme() : theme;
+    html.setAttribute('data-theme', effectiveTheme);
+}
+
+function initTheme() {
+    const storedTheme = getStoredTheme();
+    applyTheme(storedTheme);
+}
+
+function cycleTheme() {
+    const currentTheme = getStoredTheme();
+    let nextTheme;
+
+    if (currentTheme === THEMES.DARK) {
+        nextTheme = THEMES.LIGHT;
+    } else if (currentTheme === THEMES.LIGHT) {
+        nextTheme = THEMES.SYSTEM;
+    } else {
+        nextTheme = THEMES.DARK;
+    }
+
+    localStorage.setItem(STORAGE_KEY, nextTheme);
+    applyTheme(nextTheme);
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', cycleTheme);
+}
+
+initTheme();
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (getStoredTheme() === THEMES.SYSTEM) {
+        applyTheme(THEMES.SYSTEM);
+    }
+});
+
+/* ===============================
    FOTOĞRAF YEDEKLEME
 ================================== */
 
