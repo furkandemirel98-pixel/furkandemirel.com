@@ -31,6 +31,27 @@ html{
     --transition-speed:0.3s;
 }
 
+[data-theme="dark"]{
+    --bg-primary:#121417;
+    --bg-secondary:#181C20;
+    --bg-card:#20252B;
+    --border-color:rgba(255,255,255,0.08);
+    --text-primary:#F5F7FA;
+    --text-secondary:#B8C0CC;
+    --grid-opacity:0.02;
+    --card-hover-shadow:rgba(0,0,0,0.4);
+    --photo-shadow:rgba(0,0,0,0.4);
+    --btn-bg:rgba(255,255,255,0.08);
+    --btn-border:rgba(255,255,255,0.25);
+    --btn-hover-bg:rgba(255,255,255,0.12);
+    --btn-hover-border:rgba(255,255,255,0.35);
+    --btn-shadow:rgba(0,0,0,0.3);
+    --nav-link-color:#B8C0CC;
+    --nav-link-hover:#F5F7FA;
+    --footer-bg:#181C20;
+    --card-image-bg:#181C20;
+}
+
 [data-theme="light"]{
     --bg-primary:#F5F7FA;
     --bg-secondary:#E8EBF0;

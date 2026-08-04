@@ -10,27 +10,21 @@ const html = document.documentElement;
 
 const THEMES = {
     DARK: 'dark',
-    LIGHT: 'light',
-    SYSTEM: 'system'
+    LIGHT: 'light'
 };
 
 const STORAGE_KEY = 'portfolio-theme';
 
-function getSystemTheme() {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEMES.DARK : THEMES.LIGHT;
-}
-
 function getStoredTheme() {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && Object.values(THEMES).includes(stored)) {
+    if (stored && (stored === THEMES.DARK || stored === THEMES.LIGHT)) {
         return stored;
     }
-    return THEMES.SYSTEM;
+    return THEMES.DARK;
 }
 
 function applyTheme(theme) {
-    const effectiveTheme = theme === THEMES.SYSTEM ? getSystemTheme() : theme;
-    html.setAttribute('data-theme', effectiveTheme);
+    html.setAttribute('data-theme', theme);
 }
 
 function initTheme() {
@@ -40,15 +34,7 @@ function initTheme() {
 
 function cycleTheme() {
     const currentTheme = getStoredTheme();
-    let nextTheme;
-
-    if (currentTheme === THEMES.DARK) {
-        nextTheme = THEMES.LIGHT;
-    } else if (currentTheme === THEMES.LIGHT) {
-        nextTheme = THEMES.SYSTEM;
-    } else {
-        nextTheme = THEMES.DARK;
-    }
+    const nextTheme = currentTheme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
 
     localStorage.setItem(STORAGE_KEY, nextTheme);
     applyTheme(nextTheme);
@@ -59,12 +45,6 @@ if (themeToggle) {
 }
 
 initTheme();
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (getStoredTheme() === THEMES.SYSTEM) {
-        applyTheme(THEMES.SYSTEM);
-    }
-});
 
 /* ===============================
    FOTOĞRAF YEDEKLEME
