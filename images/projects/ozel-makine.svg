@@ -4,5 +4,5 @@
   <circle cx="300" cy="230" r="36" fill="#222222"/>
   <circle cx="500" cy="230" r="36" fill="#222222"/>
   <rect x="280" y="300" width="240" height="20" rx="4" fill="#222222"/>
-  <text x="400" y="430" text-anchor="middle" fill="#777777" font-family="Arial, sans-serif" font-size="18">Özel Makine</text>
+  <text x="400" y="430" text-anchor="middle" fill="#777777" font-family="Arial, sans-serif" font-size="18">ï¿½zel Makine</text>
 </svg>
