@@ -62,6 +62,32 @@ document.querySelectorAll(".photo").forEach((img) => {
 
 });
 
+/* ===============================
+   3D MODEL YEDEKLEME
+================================== */
+
+document.querySelectorAll(".model-3d").forEach((model) => {
+
+    const fallback = model.dataset.fallback;
+
+    if (!fallback) return;
+
+    model.addEventListener("error", () => {
+        const modelContainer = model.parentElement;
+        const poster = model.querySelector('.model-poster');
+        
+        if (poster) {
+            model.remove();
+            const fallbackImg = document.createElement('img');
+            fallbackImg.src = fallback;
+            fallbackImg.alt = model.alt;
+            fallbackImg.className = 'photo';
+            modelContainer.appendChild(fallbackImg);
+        }
+    }, { once: true });
+
+});
+
 
 /* ===============================
    CV İNDİRME

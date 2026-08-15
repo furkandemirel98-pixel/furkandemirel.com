@@ -74,11 +74,12 @@ html{
 }
 
 body{
-    background:var(--bg-primary);
+    background:transparent;
     color:var(--text-primary);
     line-height:1.6;
     overflow-x:hidden;
-    transition:background var(--transition-speed) ease, color var(--transition-speed) ease;
+    position:relative;
+    transition:color var(--transition-speed) ease;
 }
 
 /* ================= HEADER ================= */
@@ -110,11 +111,25 @@ nav{
 }
 
 .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
     font-size:20px;
     font-weight:700;
     letter-spacing:2.5px;
     color:var(--text-primary);
     transition:color var(--transition-speed) ease;
+    white-space:nowrap;
+}
+
+.nav-profile-photo{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--border-color);
+    box-shadow:0 2px 8px var(--photo-shadow);
+    flex-shrink:0;
 }
 
 nav ul{
@@ -234,25 +249,32 @@ nav a.active{
 /* ================= HERO ================= */
 
 .hero{
-    min-height:100vh;
+    min-height:65vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:140px 30px 100px;
+    padding:80px 30px 30px;
     position:relative;
     overflow:hidden;
 }
 
 .grid-bg{
-    position:absolute;
-    inset:0;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    background-color:var(--bg-primary);
     background-image:
         linear-gradient(rgba(255,255,255,var(--grid-opacity)) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,var(--grid-opacity)) 1px, transparent 1px);
     background-size:50px 50px;
+    transition:background-color var(--transition-speed) ease, background-image var(--transition-speed) ease;
 }
 
 [data-theme="light"] .grid-bg{
+    background-color:var(--bg-primary);
     background-image:
         linear-gradient(rgba(0,0,0,var(--grid-opacity)) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,0,0,var(--grid-opacity)) 1px, transparent 1px);
@@ -261,68 +283,63 @@ nav a.active{
 .hero-content{
     width:100%;
     max-width:1200px;
-    display:grid;
-    grid-template-columns:1fr 430px;
-    align-items:center;
-    gap:100px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
     position:relative;
     z-index:2;
-    animation:fade .8s ease;
+    will-change:opacity, transform;
+}
+
+.hero-content > .hero-text{
+    will-change:opacity, transform;
+    max-width:700px;
 }
 
 .small{
     color:var(--text-secondary);
     letter-spacing:4px;
-    margin-bottom:24px;
-    font-size:13px;
+    margin-bottom:16px;
+    font-size:17px;
     font-weight:600;
     transition:color var(--transition-speed) ease;
 }
 
 h1{
-    font-size:68px;
+    font-size:50px;
     line-height:1.05;
-    font-weight:700;
+    font: weight 700;
     color:var(--text-primary);
     transition:color var(--transition-speed) ease;
-}
-
-h1 span{
-    color:var(--text-secondary);
-    transition:color var(--transition-speed) ease;
+    margin-bottom:16px;
 }
 
 .description{
-    margin-top:32px;
-    max-width:600px;
+    margin-top:20px;
+    max-width:550px;
     color:var(--text-secondary);
-    font-size:19px;
+    font-size:20px;
     line-height:1.7;
     transition:color var(--transition-speed) ease;
 }
 
+/* ================= BUTTON ================= */
+
 .buttons{
     display:flex;
     gap:24px;
-    margin-top:50px;
+    margin-top:40px;
     flex-wrap:wrap;
-}
-
-.hero-content .buttons{
-    justify-content:flex-start;
-}
-
-@media(max-width:900px){
-    .hero-content .buttons{
-        justify-content:center;
-    }
 }
 
 .buttons:has(:only-child){
     justify-content:flex-start;
 }
 
-/* ================= BUTTON ================= */
+.hero-content .buttons{
+    justify-content:flex-start;
+}
 
 .btn{
     display:inline-flex;
@@ -360,58 +377,13 @@ h1 span{
 
 /* ================= PHOTO ================= */
 
-.profile-image,
-.about-photo{
-    display:flex;
-    justify-content:center;
-}
-
-.profile-image img,
-.about-photo img{
-    width:100%;
-    max-width:430px;
-    aspect-ratio:5/6;
-    object-fit:cover;
-    border-radius:20px;
-    border:1px solid var(--border-color);
-    box-shadow:
-        0 20px 50px var(--photo-shadow),
-        0 0 0 1px rgba(255,255,255,.02);
-    transition:.5s cubic-bezier(.4,0,.2,1), border-color var(--transition-speed) ease;
-    background:rgba(255,255,255,.02);
-    backdrop-filter:blur(10px);
-}
-
-[data-theme="light"] .profile-image img,
-[data-theme="light"] .about-photo img{
-    background:rgba(0,0,0,.02);
-    box-shadow:
-        0 20px 50px var(--photo-shadow),
-        0 0 0 1px rgba(0,0,0,.02);
-}
-
-.profile-image img:hover,
-.about-photo img:hover{
-    transform:scale(1.03);
-    box-shadow:
-        0 25px 60px var(--photo-shadow),
-        0 0 0 1px rgba(255,255,255,.05);
-}
-
-[data-theme="light"] .profile-image img:hover,
-[data-theme="light"] .about-photo img:hover{
-    box-shadow:
-        0 25px 60px var(--photo-shadow),
-        0 0 0 1px rgba(0,0,0,.05);
-}
-
 /* ================= SECTIONS ================= */
 
 section{
     width:100%;
     max-width:1200px;
     margin:auto;
-    padding:120px 30px;
+    padding:50px 30px;
     opacity:0;
     transform:translateY(30px);
     transition:.6s cubic-bezier(.4,0,.2,1);
@@ -425,12 +397,12 @@ section.show{
 #about,
 #projects,
 #contact{
-    scroll-margin-top:110px;
+    scroll-margin-top:90px;
 }
 
 h2{
     font-size:46px;
-    margin-bottom:50px;
+    margin-bottom:20px;
     position:relative;
     color:var(--text-primary);
     font-weight:700;
@@ -455,15 +427,17 @@ h2::after{
 /* ================= ABOUT ================= */
 
 .about-grid{
-    display:grid;
-    grid-template-columns:320px 1fr;
-    gap:70px;
+    display:flex;
+    flex-direction:column;
     align-items:center;
+    text-align:center;
+    max-width:800px;
+    margin:0 auto;
 }
 
 .about-text p{
     color:var(--text-secondary);
-    margin-bottom:24px;
+    margin-bottom:20px;
     max-width:650px;
     line-height:1.7;
     font-size:16px;
@@ -476,6 +450,47 @@ h2::after{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:35px;
+}
+
+.model-3d{
+    border-radius:18px 18px 0 0;
+}
+
+.model-poster{
+    position:relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg-card);
+}
+
+.model-poster img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:18px 18px 0 0;
+}
+
+.loading-indicator{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.7);
+    color:white;
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    z-index:10;
+    backdrop-filter:blur(10px);
+}
+
+[data-theme="light"] .loading-indicator{
+    background:rgba(255,255,255,0.9);
+    color:#1a1a1a;
 }
 
 .card{
@@ -663,27 +678,19 @@ footer{
 
 }
 
+/* ================= SCROLL TRANSITION ================= */
+
 /* ================= TABLET ================= */
 
 @media(max-width:900px){
 
     .hero-content{
-        grid-template-columns:1fr;
+        align-items:center;
         text-align:center;
-        gap:60px;
-    }
-
-    .profile-image{
-        order:-1;
     }
 
     .about-grid{
-        grid-template-columns:1fr;
         text-align:center;
-    }
-
-    .about-photo{
-        display:none;
     }
 
     h2::after{
@@ -708,8 +715,21 @@ footer{
         font-size:52px;
     }
 
+    .small{
+        font-size:14px;
+    }
+
     .footer-links{
         gap:25px;
+    }
+
+    .logo{
+        gap:10px;
+    }
+
+    .nav-profile-photo{
+        width:32px;
+        height:32px;
     }
 
 }
@@ -724,20 +744,35 @@ footer{
     }
 
     .logo{
-        font-size:16px;
-        letter-spacing:2px;
+        font-size:14px;
+        letter-spacing:1.5px;
+        gap:8px;
     }
 
     nav ul li:not(:last-child):not(:nth-last-child(2)){
         display:none;
     }
 
+    .nav-profile-photo{
+        width:28px;
+        height:28px;
+    }
+
     .theme-toggle{
         margin-left:10px;
     }
 
+    .hero-content{
+        align-items:center;
+        text-align:center;
+    }
+
+    .small{
+        font-size:13px;
+    }
+
     h1{
-        font-size:38px;
+        font-size:34px;
     }
 
     h2{
@@ -746,10 +781,6 @@ footer{
 
     .description{
         font-size:16px;
-    }
-
-    .profile-image img{
-        max-width:280px;
     }
 
     .cards{

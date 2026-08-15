@@ -9,14 +9,23 @@
     <meta name="description" content="Furkan Demirel - CAD Tasarım, SolidWorks ve Mekanik Tasarım Portföyü">
 
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
 </head>
 
 <body>
+
+<div class="grid-bg"></div>
 
 <header>
     <nav>
         <div class="logo">
             FURKAN DEMİREL
+            <img
+                src="images/furkan.png"
+                data-fallback="images/furkan.svg"
+                alt="Furkan Demirel"
+                class="nav-profile-photo"
+            >
         </div>
 
         <ul>
@@ -53,8 +62,6 @@
 
 <section class="hero">
 
-    <div class="grid-bg"></div>
-
     <div class="hero-content">
 
         <div class="hero-text">
@@ -63,8 +70,8 @@
             </p>
 
             <h1>
-                Mekanik Tasarım<br>
-                <span>ve Üretim Odaklı Çözümler</span>
+                Mekanik Tasarım ve<br>
+                Üretim Odaklı Çözümler
             </h1>
 
             <p class="description">
@@ -79,33 +86,13 @@
             </div>
         </div>
 
-        <div class="profile-image">
-            <img
-                src="images/furkan.png"
-                data-fallback="images/furkan.svg"
-                alt="Furkan Demirel profil fotoğrafı"
-                class="photo"
-            >
-        </div>
-
     </div>
 
 </section>
 
-
-
 <section id="about" class="about">
 
     <div class="about-grid">
-        <div class="about-photo">
-            <img
-                src="images/furkan.jpg"
-                data-fallback="images/furkan.svg"
-                alt="Furkan Demirel"
-                class="photo"
-            >
-        </div>
-
         <div class="about-text">
             <h2>Hakkımda</h2>
 
@@ -133,12 +120,30 @@
 
         <article class="card">
             <div class="card-image">
-                <img
-                    src="images/projects/dikey-mikser.jpg"
-                    data-fallback="images/projects/dikey-mikser.svg"
+                <model-viewer
+                    src="models/dikey-mikser.glb"
                     alt="Dikey Mikser Tasarımı"
-                    class="photo"
+                    auto-rotate
+                    camera-controls
+                    touch-action="pan-y"
+                    style="width: 100%; height: 100%;"
+                    loading="eager"
+                    reveal="auto"
+                    class="photo model-3d"
+                    camera-orbit="45deg 75deg 2.5m"
+                    field-of-view="30deg"
+                    data-fallback="images/projects/dikey-mikser.jpg"
                 >
+                    <div slot="poster" class="model-poster">
+                        <img
+                            src="images/projects/dikey-mikser.jpg"
+                            data-fallback="images/projects/dikey-mikser.svg"
+                            alt="Dikey Mikser Tasarımı"
+                            class="photo"
+                        >
+                        <div class="loading-indicator">3D Model yükleniyor...</div>
+                    </div>
+                </model-viewer>
             </div>
             <h3>Dikey Mikser Tasarımı</h3>
             <p>
