@@ -179,4 +179,52 @@ window.addEventListener("scroll", () => {
 });
 
 
+/* ===============================
+   PROFİL FOTOĞRAF BÜYÜTME
+================================== */
+
+const navProfilePhoto = document.querySelector('.nav-profile-photo');
+const dikeyMikserPhoto = document.getElementById('dikeyMikserPhoto');
+const ozelMakinePhoto = document.getElementById('ozelMakinePhoto');
+const photoOverlay = document.getElementById('photoOverlay');
+const overlayPhoto = document.getElementById('overlayPhoto');
+
+if (navProfilePhoto && photoOverlay && overlayPhoto) {
+    navProfilePhoto.addEventListener('click', () => {
+        const currentSrc = navProfilePhoto.src;
+        overlayPhoto.src = currentSrc;
+        photoOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+if (dikeyMikserPhoto && photoOverlay && overlayPhoto) {
+    dikeyMikserPhoto.addEventListener('click', () => {
+        const currentSrc = dikeyMikserPhoto.src;
+        overlayPhoto.src = currentSrc;
+        photoOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+if (ozelMakinePhoto && photoOverlay && overlayPhoto) {
+    ozelMakinePhoto.addEventListener('click', () => {
+        const currentSrc = ozelMakinePhoto.src;
+        overlayPhoto.src = currentSrc;
+        photoOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+if (photoOverlay && overlayPhoto) {
+    photoOverlay.addEventListener('click', () => {
+        photoOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            overlayPhoto.src = '';
+        }, 500);
+    });
+}
+
+
 console.log("🚀 Furkan Demirel Portfolio başarıyla yüklendi.");

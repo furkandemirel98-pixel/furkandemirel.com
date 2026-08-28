@@ -16,6 +16,10 @@
 
 <div class="grid-bg"></div>
 
+<div class="photo-overlay" id="photoOverlay">
+    <img src="" alt="Büyütülmüş profil fotoğrafı" class="overlay-photo" id="overlayPhoto">
+</div>
+
 <header>
     <nav>
         <div class="logo">
@@ -120,30 +124,13 @@
 
         <article class="card">
             <div class="card-image">
-                <model-viewer
-                    src="models/dikey-mikser.glb"
+                <img
+                    src="images/projects/dikey-mikser.jpg"
+                    data-fallback="images/projects/dikey-mikser.svg"
                     alt="Dikey Mikser Tasarımı"
-                    auto-rotate
-                    camera-controls
-                    touch-action="pan-y"
-                    style="width: 100%; height: 100%;"
-                    loading="eager"
-                    reveal="auto"
-                    class="photo model-3d"
-                    camera-orbit="45deg 75deg 2.5m"
-                    field-of-view="30deg"
-                    data-fallback="images/projects/dikey-mikser.jpg"
+                    class="photo project-photo-clickable"
+                    id="dikeyMikserPhoto"
                 >
-                    <div slot="poster" class="model-poster">
-                        <img
-                            src="images/projects/dikey-mikser.jpg"
-                            data-fallback="images/projects/dikey-mikser.svg"
-                            alt="Dikey Mikser Tasarımı"
-                            class="photo"
-                        >
-                        <div class="loading-indicator">3D Model yükleniyor...</div>
-                    </div>
-                </model-viewer>
             </div>
             <h3>Dikey Mikser Tasarımı</h3>
             <p>
@@ -171,7 +158,8 @@
                     src="images/projects/ozel-makine.jpg"
                     data-fallback="images/projects/ozel-makine.svg"
                     alt="Özel Makine Tasarımları"
-                    class="photo"
+                    class="photo project-photo-clickable"
+                    id="ozelMakinePhoto"
                 >
             </div>
             <h3>Özel Makine Tasarımları</h3>
