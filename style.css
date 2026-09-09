@@ -229,6 +229,12 @@ nav a.active{
     border-radius:30px;
     color:var(--text-primary);
     transition:border-color var(--transition-speed) ease, background var(--transition-speed) ease, color var(--transition-speed) ease;
+    cursor:pointer;
+    background:transparent;
+    font-family:inherit;
+    font-size:inherit;
+    text-decoration:none;
+    display:inline-block;
 }
 
 .nav-cv:hover{
