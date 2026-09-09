@@ -100,7 +100,7 @@ if (dualMixerModel && dualMixerStatus) {
    CV İNDİRME
 ================================== */
 
-document.querySelectorAll(".cv-download, .nav-cv").forEach((button) => {
+document.querySelectorAll(".cv-download, .nav-cv:not(.ats-cv-btn)").forEach((button) => {
 
     button.addEventListener("click", (e) => {
 
