@@ -239,6 +239,8 @@ nav a.active{
     -webkit-appearance:none;
     -moz-appearance:none;
     appearance:none;
+    border-width:1px;
+    border-style:solid;
 }
 
 .nav-cv:hover{
@@ -249,8 +251,9 @@ nav a.active{
 
 /* ATS CV butonu için özel stiller */
 .ats-cv-btn{
-    background:transparent !important;
-    color:var(--text-primary) !important;
+    background:transparent;
+    color:var(--text-primary);
+    border:1px solid var(--btn-border);
 }
 
 /* ================= THEME TOGGLE ================= */
