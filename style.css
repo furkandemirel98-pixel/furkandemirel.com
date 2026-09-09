@@ -235,25 +235,12 @@ nav a.active{
     font-size:inherit;
     text-decoration:none;
     display:inline-block;
-    outline:none;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-    border-width:1px;
-    border-style:solid;
 }
 
 .nav-cv:hover{
     background:var(--btn-hover-bg);
     color:var(--text-primary);
     border-color:var(--btn-hover-border);
-}
-
-/* ATS CV butonu için özel stiller */
-.ats-cv-btn{
-    background:transparent;
-    color:var(--text-primary);
-    border:1px solid var(--btn-border);
 }
 
 /* ================= THEME TOGGLE ================= */

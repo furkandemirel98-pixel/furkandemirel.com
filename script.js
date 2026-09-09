@@ -235,29 +235,3 @@ if (photoOverlay && overlayPhoto) {
 
 
 console.log("🚀 Furkan Demirel Portfolio başarıyla yüklendi.");
-
-/* ===============================
-   ATS CV BUTON KONTROL
-================================== */
-
-const atsCvBtn = document.getElementById('atsCvBtn');
-
-if (atsCvBtn) {
-    atsCvBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('ATS CV butonuna tıklandı');
-
-        const atsCvPath = 'cv/Furkan_Demirel_ATS_CV.pdf';
-        const link = document.createElement('a');
-        link.href = atsCvPath;
-        link.download = 'Furkan_Demirel_ATS_CV.pdf';
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        console.log('ATS CV indirme başlatıldı:', atsCvPath);
-        return false;
-    });
-}
