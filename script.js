@@ -258,5 +258,6 @@ if (atsCvBtn) {
         document.body.removeChild(link);
 
         console.log('ATS CV indirme başlatıldı:', atsCvPath);
+        return false;
     });
 }
