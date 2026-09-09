@@ -245,6 +245,7 @@ const atsCvBtn = document.getElementById('atsCvBtn');
 if (atsCvBtn) {
     atsCvBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         console.log('ATS CV butonuna tıklandı');
 
         const atsCvPath = 'cv/Furkan_Demirel_ATS_CV.pdf';
