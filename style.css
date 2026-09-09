@@ -443,6 +443,11 @@ section.show{
     transform:translateY(0);
 }
 
+/* Bölüm başlıklarını ortala */
+section h2 {
+    text-align: center;
+}
+
 #about,
 #projects,
 #contact{
@@ -457,6 +462,8 @@ h2{
     font-weight:700;
     transition:color var(--transition-speed) ease;
     display:inline-block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 h2::after{
@@ -501,30 +508,15 @@ h2::after{
     gap:35px;
 }
 
-.model-3d{
-    border-radius:18px 18px 0 0;
-}
-
-.model-poster{
-    position:relative;
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--bg-card);
-}
-
-.model-poster img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:18px 18px 0 0;
-}
+/* ================= PROJECTS ================= */
 
 .project-photo-clickable{
     cursor:pointer;
     transition:transform 0.2s ease;
+}
+
+.project-photo-clickable:hover{
+    transform:scale(1.02);
 }
 
 .project-photo-clickable:hover{
@@ -581,6 +573,10 @@ h2::after{
         0 0 0 1px rgba(0,0,0,.02);
 }
 
+[data-theme="light"] .model-tag{
+    background:rgba(255,255,255,.76);
+}
+
 .card-image{
     width:100%;
     aspect-ratio:16/10;
@@ -605,6 +601,7 @@ h2::after{
     font-size:21px;
     color:var(--text-primary);
     font-weight:600;
+    text-align:center;
     transition:color var(--transition-speed) ease;
 }
 
@@ -613,6 +610,7 @@ h2::after{
     color:var(--text-secondary);
     line-height:1.6;
     font-size:15px;
+    text-align:center;
     transition:color var(--transition-speed) ease;
 }
 

@@ -66,27 +66,34 @@ document.querySelectorAll(".photo").forEach((img) => {
    3D MODEL YEDEKLEME
 ================================== */
 
-document.querySelectorAll(".model-3d").forEach((model) => {
+document.querySelectorAll("model-viewer[data-fallback]").forEach((model) => {
 
     const fallback = model.dataset.fallback;
 
     if (!fallback) return;
 
     model.addEventListener("error", () => {
-        const modelContainer = model.parentElement;
-        const poster = model.querySelector('.model-poster');
-        
-        if (poster) {
-            model.remove();
-            const fallbackImg = document.createElement('img');
-            fallbackImg.src = fallback;
-            fallbackImg.alt = model.alt;
-            fallbackImg.className = 'photo';
-            modelContainer.appendChild(fallbackImg);
-        }
+        const fallbackImg = document.createElement('img');
+        fallbackImg.src = fallback;
+        fallbackImg.alt = model.alt;
+        fallbackImg.className = 'photo';
+        model.replaceWith(fallbackImg);
     }, { once: true });
 
 });
+
+const dualMixerModel = document.getElementById("dualMixerModel");
+const dualMixerStatus = document.getElementById("dualMixerStatus");
+
+if (dualMixerModel && dualMixerStatus) {
+    dualMixerModel.addEventListener("load", () => {
+        dualMixerStatus.textContent = "Sürükleyerek döndürün, kaydırarak yakınlaştırın.";
+    });
+
+    dualMixerModel.addEventListener("error", () => {
+        dualMixerStatus.textContent = "3D model yüklenemedi; proje görseli gösteriliyor.";
+    });
+}
 
 
 /* ===============================
@@ -228,3 +235,27 @@ if (photoOverlay && overlayPhoto) {
 
 
 console.log("🚀 Furkan Demirel Portfolio başarıyla yüklendi.");
+
+/* ===============================
+   ATS CV BUTON KONTROL
+================================== */
+
+const atsCvBtn = document.getElementById('atsCvBtn');
+
+if (atsCvBtn) {
+    atsCvBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('ATS CV butonuna tıklandı');
+
+        const atsCvPath = 'cv/Furkan_Demirel_ATS_CV.pdf';
+        const link = document.createElement('a');
+        link.href = atsCvPath;
+        link.download = 'Furkan_Demirel_ATS_CV.pdf';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        console.log('ATS CV indirme başlatıldı:', atsCvPath);
+    });
+}
