@@ -801,7 +801,7 @@ footer{
 @media(max-width:600px){
 
     nav{
-        height:85px;
+        height:65px;
         padding:0 20px;
     }
 
@@ -821,15 +821,16 @@ footer{
         display:none;
     }
 
-    /* CV ve ATS CV butonlarını alt alta kompakt göster */
+    /* CV ve ATS CV butonlarını yanyana kompakt göster */
     nav ul{
-        flex-direction:column;
-        gap:3px;
+        flex-direction:row;
+        gap:4px;
+        align-items:center;
     }
 
     .nav-cv{
         display:block;
-        width:100%;
+        width:auto;
         text-align:center;
     }
 
@@ -890,10 +891,10 @@ footer{
     }
 
     .nav-cv{
-        padding:5px 10px;
-        font-size:11px;
+        padding:4px 12px;
+        font-size:10px;
         display:block;
-        width:100%;
+        width:auto;
         text-align:center;
     }
 
