@@ -801,7 +801,7 @@ footer{
 @media(max-width:600px){
 
     nav{
-        height:75px;
+        height:85px;
         padding:0 20px;
     }
 
@@ -811,13 +811,26 @@ footer{
         gap:8px;
     }
 
-    nav ul li:not(:last-child):not(:nth-last-child(2)){
-        display:none;
-    }
-
     .nav-profile-photo{
         width:28px;
         height:28px;
+    }
+
+    /* Mobilde sadece logo, CV, ATS CV ve theme-toggle göster */
+    nav ul li:not(:has(.logo)):not(:has(.nav-cv)):not(:has(.theme-toggle)){
+        display:none;
+    }
+
+    /* CV ve ATS CV butonlarını alt alta kompakt göster */
+    nav ul{
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .nav-cv{
+        display:block;
+        width:100%;
+        text-align:center;
     }
 
     .theme-toggle{
@@ -877,8 +890,11 @@ footer{
     }
 
     .nav-cv{
-        padding:8px 16px;
-        font-size:14px;
+        padding:5px 10px;
+        font-size:11px;
+        display:block;
+        width:100%;
+        text-align:center;
     }
 
 }
