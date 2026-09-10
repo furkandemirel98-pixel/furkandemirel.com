@@ -817,7 +817,7 @@ footer{
     }
 
     /* Mobilde sadece logo, CV, ATS CV ve theme-toggle göster */
-    nav ul li:not(:has(.logo)):not(:has(.nav-cv)):not(:has(.theme-toggle)){
+    nav ul li:not(:has(.logo)):not(:has(.mobile-cv-btn)):not(:has(.theme-toggle)){
         display:none;
     }
 
@@ -828,8 +828,8 @@ footer{
         align-items:center;
     }
 
-    .nav-cv{
-        display:block;
+    .mobile-cv-btn{
+        display:block !important;
         width:auto;
         text-align:center;
     }
