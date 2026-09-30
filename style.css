@@ -626,6 +626,11 @@ h2::after{
     text-align:center;
 }
 
+/* Projeler bölümünü ortala */
+#projects{
+    text-align:center;
+}
+
 .contact-text{
     color:var(--text-secondary);
     max-width:700px;
