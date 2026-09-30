@@ -193,6 +193,7 @@ window.addEventListener("scroll", () => {
 const navProfilePhoto = document.querySelector('.nav-profile-photo');
 const dikeyMikserPhoto = document.getElementById('dikeyMikserPhoto');
 const ozelMakinePhoto = document.getElementById('ozelMakinePhoto');
+const ribonMixerPhoto = document.getElementById('ribonMixerPhoto');
 const photoOverlay = document.getElementById('photoOverlay');
 const overlayPhoto = document.getElementById('overlayPhoto');
 
@@ -217,6 +218,15 @@ if (dikeyMikserPhoto && photoOverlay && overlayPhoto) {
 if (ozelMakinePhoto && photoOverlay && overlayPhoto) {
     ozelMakinePhoto.addEventListener('click', () => {
         const currentSrc = ozelMakinePhoto.src;
+        overlayPhoto.src = currentSrc;
+        photoOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+if (ribonMixerPhoto && photoOverlay && overlayPhoto) {
+    ribonMixerPhoto.addEventListener('click', () => {
+        const currentSrc = ribonMixerPhoto.src;
         overlayPhoto.src = currentSrc;
         photoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
